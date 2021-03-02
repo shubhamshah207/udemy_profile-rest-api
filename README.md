@@ -41,3 +41,15 @@ python manage.py startapp profiles_api
 Enable app by settings.py INSTALLED_APPS append ["rest_framework", "rest_framework.authtoken"]
 
 python manage.py runserver 0.0.0.0:8000
+
+models meaning tables in database
+
+models.py
+from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import PermissionMixin
+
+create manager and user in models.py
+
+AUTH_USER_MODEL = 'prifiles_api.UserProfile' in settings.py to use custom user model
+
+python manage.py makemigrations profiles_api
