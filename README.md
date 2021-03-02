@@ -23,10 +23,21 @@ Create vagrant file
 vagrant init ubuntu/bionic64
 
 in git bash
-vagrant up (download os create machine using virtualbox and run the commands mention in vagrantfile)
+vagrant up (download os create machine using virtualbox and run the commands mention in vagrantfile) or to start virtual box
 
 to connect to guest server
 vagrant ssh
 
 Synchronized project files in devlopment server - how vagrant works
 cd /vagrant/
+
+https://python-guide.readthedocs.io/en/latest/dev/virtualenvs/
+
+pip install -r requirements.txt (r means requirements)
+
+django-admin.py startproject projectname pathtocreate
+
+python manage.py startapp profiles_api
+Enable app by settings.py INSTALLED_APPS append ["rest_framework", "rest_framework.authtoken"]
+
+python manage.py runserver 0.0.0.0:8000
