@@ -57,3 +57,7 @@ python manage.py makemigrations profiles_api
 python manage.py migrate
 
 Add to django admin by adding site to admin.py
+
+APIView in views.py
+
+set urls using include in urls.py
