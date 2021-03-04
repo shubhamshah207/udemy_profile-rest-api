@@ -53,3 +53,7 @@ create manager and user in models.py
 AUTH_USER_MODEL = 'prifiles_api.UserProfile' in settings.py to use custom user model
 
 python manage.py makemigrations profiles_api
+
+python manage.py migrate
+
+Add to django admin by adding site to admin.py
