@@ -61,3 +61,5 @@ Add to django admin by adding site to admin.py
 APIView in views.py
 
 set urls using include in urls.py
+
+Sealizers -- allows to convert data inputs to python objects and vice verca.
