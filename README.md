@@ -322,7 +322,7 @@ next we restart our profiles api
 
 we will use setup.sh once and then we will use update.sh whenever we changes the code.
 
-DEBUG = bool(int(os.env.get('DEBUG', 1))) # commenting coz deploying to aws
+DEBUG = bool(int(os.environ.get('DEBUG', 1))) # commenting coz deploying to aws
 #env is there in supervisor_profiles_api
 
 

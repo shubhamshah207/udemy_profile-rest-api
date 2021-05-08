@@ -25,7 +25,7 @@ SECRET_KEY = '_@zzve*xwb52bj3gk)5pg@ebei@)r4i_*epu36%k-9&#82&_!c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 1))) # commenting coz deploying to aws
 #env is there in supervisor_profiles_api
-ALLOWED_HOSTS = ['https://ec2-18-222-172-99.us-east-2.compute.amazonaws.com', '127.0.0.1']
+ALLOWED_HOSTS = ['ec2-18-222-172-99.us-east-2.compute.amazonaws.com', '127.0.0.1']
 # adding local host so that it will work for vagrant server as well
 
 # Application definition
