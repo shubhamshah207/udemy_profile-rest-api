@@ -347,3 +347,9 @@ L is for following redirects.
 sudo is used to run command as administartor
 bash is what we are going to use to run our script
 - is used to signal the end of the options provided for bash. so that it knows anything we pass in is to be ran on bash.
+
+when we paste Public IPv4 DNS url to browser we will get error 400. That is because we haven't added the host name to the allowed hosts on our settings.py
+
+to fix bad request error
+ALLOWED_HOSTS allows us to enable access via specific domain names.
+Its a security feature to make sure if somebody just finds a random ip address for our server they cant access the application unless they use the valid hostname
