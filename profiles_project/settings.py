@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_@zzve*xwb52bj3gk)5pg@ebei@)r4i_*epu36%k-9&#82&_!c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.env.get('DEBUG', 1))) # commenting coz deploying to aws
+DEBUG = bool(int(os.environ.get('DEBUG', 1))) # commenting coz deploying to aws
 #env is there in supervisor_profiles_api
 ALLOWED_HOSTS = []
 

@@ -328,3 +328,22 @@ DEBUG = bool(int(os.env.get('DEBUG', 1))) # commenting coz deploying to aws
 
 To change the permissions of executable files
 $ chmod +x deploy/*.sh
+
+we need Public IPv4 DNS to ssh to aws instance
+
+ssh ubuntu@ec2-18-116-203-66.us-east-2.compute.amazonaws.com
+
+here ubantu is the user.
+
+to run setup file we need to take url of raw file
+https://raw.githubusercontent.com/shubhamshah207/udemy_profile-rest-api/main/deploy/setup.sh
+
+curl -sL https://raw.githubusercontent.com/shubhamshah207/udemy_profile-rest-api/main/deploy/setup.sh | sudo bash -
+
+curl to download the file and then passes it into sudo bash
+curl used to retrieve contents from a url so its basically a http client in linux
+-s is for running it in silent mode. Meaning it wont update us with all of the steps white downloading the file.
+L is for following redirects.
+sudo is used to run command as administartor
+bash is what we are going to use to run our script
+- is used to signal the end of the options provided for bash. so that it knows anything we pass in is to be ran on bash.
