@@ -122,4 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#to override user model of django with custom
 AUTH_USER_MODEL = 'profiles_api.UserProfile'

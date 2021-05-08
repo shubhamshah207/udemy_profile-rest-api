@@ -38,12 +38,13 @@ class HelloAPIView(APIView):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
-
+    # id of the object in pk which you want to update
+    # put will replace the object with the new one.
     def put(self, request, pk=None):
         """"Handle updating an object"""
         return Response({'method':'PUT'})
 
-
+    # patch update a particular key value which is provided.
     def patch(self, request, pk=None):
         """Handle a partial update of an object"""
         return Response({'method':'PATCH'})
@@ -98,6 +99,8 @@ class HelloViewSet(viewsets.ViewSet):
 class UserProfileViewSet(viewsets.ModelViewSet):
     """Handle updating and creating profiles"""
     serializer_class = serializers.UserProfileSerializer
+
+    # queryset is to define model
     queryset = models.UserProfile.objects.all()
     authentication_classes = (TokenAuthentication, )
     permission_classes = (permissions.UpdateOwnProfile, )
