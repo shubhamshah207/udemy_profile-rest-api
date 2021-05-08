@@ -250,3 +250,36 @@ add url to enable this view
 
 using login api we will get token, which we need to use for authentication in header of the request
 Authorization 724dbdee50ac9ccb21bd3d58d40a5eaad775a81a
+___________________________________________________________________________________________________________________
+
+USER PROFILE FEED ITEMS
+
+Creating a new feed ITEMS
+	logged in user only
+Updating feed items
+	logged in user only
+Deleting profile feed items
+	logged in user only
+Viewing other profile status updates
+	All users
+
+API URLS
+/api/feed/ 									- list all feed items
+														-	GET (list feed items)
+														- POST (create feed item for logged in user)
+/api/feed/<feed_item_id>/		- Manage specific feed items
+														- GET (get the details of a specific feed item)
+														- PUT/PATCH (update the feed item)
+														- DELETE (deleting the feed item)
+
+_________________________________________________________________________________________________________________
+from django.conf import settings
+to get the settings of the project
+
+we need to use foreign key 
+    user_profile = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete= models.CASCADE
+    )
+
+Serializer 

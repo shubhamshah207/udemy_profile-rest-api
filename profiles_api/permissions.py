@@ -14,3 +14,13 @@ class UpdateOwnProfile(permissions.BasePermission):
         """If user is updating his own profile then this will be true"""
         """when you authenticate a request in django rest rest_framework it will assign the authenticated user profile to the request and we can use this to compare it to the object that is being updated"""
         return obj.id == request.user.id
+
+
+class UpdateOwnStatus(permissions.BasePermission):
+    """Allow users to update their own status"""
+    def has_object_permission(self, request, view, obj):
+        """Check the user is trying to update their own status"""
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        return obj.user_profile.id == request.user.id

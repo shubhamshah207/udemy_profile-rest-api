@@ -5,3 +5,4 @@ from profiles_api import models
 
 # to register the user profile model to django admin
 admin.site.register(models.UserProfile)
+admin.site.register(models.ProfileFeedItem)

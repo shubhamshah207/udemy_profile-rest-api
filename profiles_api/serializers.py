@@ -43,3 +43,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
             password = validated_data.pop('password')
             instance.set_password(password)
         return super().update(instance, validated_data)
+
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    """Serializers profile feed items"""
+
+    class Meta:
+        model = models.ProfileFeedItem
+        # id is always ready_only
+        fields = ('id', 'user_profile', 'status_text', 'created_on')
+        # we do not need to change user_profile while creating new feed - we need to make user_profile as read only.
+        extra_kwargs = {
+            'user_profile': {'read_only': True}
+        }
