@@ -353,3 +353,17 @@ when we paste Public IPv4 DNS url to browser we will get error 400. That is beca
 to fix bad request error
 ALLOWED_HOSTS allows us to enable access via specific domain names.
 Its a security feature to make sure if somebody just finds a random ip address for our server they cant access the application unless they use the valid hostname
+
+cd /usr/local/apps/profiles-rest-api
+sudo sh ./deploy/update.sh
+
+for apis
+http://ec2-18-222-172-99.us-east-2.compute.amazonaws.com/api/
+
+
+http://ec2-18-222-172-99.us-east-2.compute.amazonaws.com/admin
+create a super user and then try to login to admin panel
+
+sudo env/bin/python manage.py createsuperuser
+
+deploy app to aws on a EC2
