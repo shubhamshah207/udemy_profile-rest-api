@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_@zzve*xwb52bj3gk)5pg@ebei@)r4i_*epu36%k-9&#82&_!c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = bool(int(os.env.get('DEBUG', 1))) # commenting coz deploying to aws
+#env is there in supervisor_profiles_api
 ALLOWED_HOSTS = []
 
 
@@ -124,3 +124,7 @@ STATIC_URL = '/static/'
 
 #to override user model of django with custom
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+
+
+STATIC_ROOT = 'static/'
+#this is the location where where django will store all of the static files when we run our collect static command

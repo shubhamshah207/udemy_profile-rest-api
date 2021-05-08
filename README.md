@@ -276,10 +276,55 @@ ________________________________________________________________________________
 from django.conf import settings
 to get the settings of the project
 
-we need to use foreign key 
+we need to use foreign key
     user_profile = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete= models.CASCADE
     )
 
-Serializer 
+Serializer
+
+_______________________________________________________________________________________________________________
+Deploy it on aws
+
+Services -> EC2 -> KeyPair -> Import Key -> Paste Public key
+
+when aws create an instance the port is 82 for ssh access
+We need to open port 80 so that we can connect to web server once we create it.
+Services -> EC2 -> create Instance -> Ubuntu Server 18.04 -> select -> Configure -> Configure Security group -> Add HTTP -> Review
+
+
+
+
+
+apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git
+
+git for version control and clone the project
+python3-venv for python virtual environment
+nginx is the web server that is going to serve the static files and act as a proxy to our uWISGI service that is going to run in supervisor
+
+$PROJECT_BASE_PATH/env/bin/pip install uwsgi==2.0.18
+uwsgi is python daemon for running python code as a webserver
+
+
+collectstatic will gather all of the static files for all of the apps in our project into one.
+when you use django development server it will do this automatically for you
+$PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
+
+but we will not be using django development server on production we need to create a location with all of the static files that we can use to serve the css and JavaScript for the django admin and django rest framework browsable api.
+
+Supervisor is a application on linux that allows you to manage processes. this is what's going to manage our python process or uwsgi server
+
+reread to update the supervisor
+update to update all the processes
+next we restart our profiles api
+
+
+we will use setup.sh once and then we will use update.sh whenever we changes the code.
+
+DEBUG = bool(int(os.env.get('DEBUG', 1))) # commenting coz deploying to aws
+#env is there in supervisor_profiles_api
+
+
+To change the permissions of executable files
+$ chmod +x deploy/*.sh
